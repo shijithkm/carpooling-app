@@ -1,0 +1,37 @@
+<mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="start center">
+    <span fxLayout="row" fxFlex="50px" fxLayoutGap="5px">
+      <i class="material-icons logo">&#xE559;</i>
+    </span>
+    <span fxLayout="row" fxFlex>
+      <h1 class="title">LOGIN TO APP</h1>
+    </span>
+  </mat-toolbar>
+
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="login-form">
+      <form>
+        <span class="label-14">Username</span>
+        <mat-form-field>
+          <input matInput placeholder="10-digit mobile number or email ID" value="">
+        </mat-form-field>
+        <span class="label-14">Password</span>
+        <mat-form-field>
+          <input type="password" matInput placeholder="password" value="">
+        </mat-form-field>
+        <div>
+          <a class="label-14-blue">FORGOT PASSWORD?</a>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary">LOGIN</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <br/>
+
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+    <span class="label-12">Don't have an account?</span>
+    <a routerLink="/register" class="label-14-blue">REGISTER NOW</a>
+  </div>

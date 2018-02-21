@@ -1,0 +1,60 @@
+<mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="start center">
+    <span fxLayout="row" fxFlex="50px" fxLayoutGap="5px">
+      <i class="material-icons logo">&#xE559;</i>
+    </span>
+    <span fxLayout="row" fxFlex>
+      <h1 class="title">REGISTER WITH APP</h1>
+    </span>
+  </mat-toolbar>
+
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="register-form">
+      <form>
+        <span class="label-14">First Name</span>
+        <mat-form-field>
+          <input matInput placeholder="enter your first name & last name" value="">
+        </mat-form-field>
+
+        <span class="label-14">Email ID</span>
+        <mat-form-field>
+          <input matInput placeholder="enter your email ID" value="">
+        </mat-form-field>
+
+        <span class="label-14">Mobile Number</span>
+        <mat-form-field>
+          <input matInput placeholder="enter your 10-digit mobile number" value="">
+        </mat-form-field>
+
+
+        <span class="label-14">Password</span><span>(min 6 characters)</span>
+        <mat-form-field>
+          <input type="password" matInput placeholder="set your password" value="">
+        </mat-form-field>
+
+        <span class="label-14">Re-enter Password</span><span>(min 6 characters)</span>
+        <mat-form-field>
+          <input type="password" matInput placeholder="re-enter your password" value="">
+        </mat-form-field>
+
+        <span class="label-14">Car Model</span>
+        <mat-form-field>
+          <input matInput placeholder="name of the car you have" value="">
+        </mat-form-field>
+
+        <div>
+          <a class="label-14-blue">FORGOT PASSWORD?</a>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary">REGISTER</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+  <br/>
+
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+    <span class="label-12">Already have an account?</span>
+    <a routerLink="/login" class="label-14-blue">LOGIN NOW</a>
+  </div>
