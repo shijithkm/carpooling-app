@@ -1,0 +1,56 @@
+.register-form {
+    margin-top: 25px;
+    width: 500px;
+}
+
+.register-form mat-form-field{
+    width: 100%;
+}
+.search-container{
+    background-color: rgb(228, 228, 228);
+    height: auto;
+    padding: 15px 0px;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+.search-result{
+    display: inline-block;
+    position: relative;
+}
+.location-icon{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: rgba(152, 152, 152, 1);
+    font-size: 35px;
+}
+.check-icon{
+    color: white;
+    font-size: 60px;
+}
+.call-icon{
+    color: rgb(19, 149, 24) !important;
+    font-size: 60px;
+}
+.person-icon-2 {
+    color: rgba(152, 152, 152, 1);
+    font-size: 35px;
+}
+.wrapper{
+    width:80%;
+    margin: 10px auto;
+}
+.item{
+    width: 500px;
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+}
+.selected{
+    background: rgb(153, 205, 255);
+    color: white !important;
+}
+.wrapper mat-card{
+    padding: 10px !important;
+}
