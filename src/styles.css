@@ -57,7 +57,23 @@ mat-toolbar {
     font-weight: 600;
     line-height: 1.5;
 }
-
+.location-icon{
+    color: rgba(152, 152, 152, 1);
+    font-size: 35px;
+    margin: 15px 15px 0px 0px;
+}
+.check-icon{
+    color: white;
+    font-size: 60px;
+}
+.call-icon{
+    color: rgb(19, 149, 24) !important;
+    font-size: 60px;
+}
+.person-icon-2 {
+    color: rgba(152, 152, 152, 1);
+    font-size: 35px;
+}
 .person-icon{
     color: #989898;
   font-size: 70px;

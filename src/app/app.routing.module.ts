@@ -7,10 +7,10 @@ import { RideComponent } from './ride/ride.component';
 
 
 const routes: Routes = [
-    
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        data : { appTitle: 'Login to app'}
     },
     {
         path: '',
@@ -19,11 +19,13 @@ const routes: Routes = [
     },
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        data : { appTitle: 'Regigster with app'}
     },
     {
         path: 'ride',
-        component: RideComponent
+        component: RideComponent,
+        data : { appTitle: 'Pick a ride'}
     }
 ];
 

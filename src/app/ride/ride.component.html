@@ -1,92 +1,41 @@
-<mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="start center">
-  <span fxLayout="row" fxFlex="50px" fxLayoutGap="5px">
-    <i class="material-icons logo">&#xE559;</i>
-  </span>
-  <span fxLayout="row" fxFlex="100px">
-    <h1 class="title">PICK A RIDE</h1>
-  </span>
-  <span fxLayout="row" fxFlex fxLayoutAlign="end center"><i class="material-icons person-icon-2">&#xE7FD;</i></span>
-</mat-toolbar>
+<agm-map [latitude]="lat" [longitude]="lng" >
+  <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+</agm-map>
 
+<div ngClass.xs="search-container-xs" class="search-container">
+<div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="row"  fxFlex="1020px" fxFlex.xs fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutGap.xs="10px" fxLayoutAlign="start center"
+      fxLayoutAlign.xs="start stretch">
+      
+      <mat-card class="card" fxFlex="48%" fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="center stretch">
+        <span class="label-14">Start From</span>
+        <mat-form-field>
+          <input matInput placeholder="Koramangala" value="">
+        </mat-form-field>
 
-<div class="search-container">
+      </mat-card>
+      <mat-card class="card" fxFlex="48%"  fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="center stretch">
 
-  <form class="wrapper">
-
-    <mat-card class="item" fxLayout="column" fxLayoutAlign="center stretch">
-      <span class="label-14">Start From</span>
-      <mat-form-field>
-        <input matInput placeholder="Koramangala" value="">
-      </mat-form-field>
-
-    </mat-card>
-    <mat-card class="item" fxLayout="column" fxLayoutAlign="center stretch">
-
-      <span class="label-14">Destination</span>
-      <mat-form-field>
-        <input matInput placeholder="Whitefield" value="">
-      </mat-form-field>
-
-    </mat-card>
-  </form>
-
-
-  <i class="material-icons location-icon">&#xE0C8;</i>
+        <span class="label-14">Destination</span>
+        <mat-form-field>
+          <input matInput placeholder="Whitefield" value="">
+        </mat-form-field>
+      </mat-card>
+    </div>
+</div>
 
 </div>
 
-<div class="search-result">
-  <div class="wrapper">
+<div class="result-container" fxLayout="row" fxLayoutAlign="center center">
 
-      <mat-card class='item selected' fxLayout="row" fxLayoutAlign="start center">
-          <span fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
-              <i class="material-icons check-icon">&#xE5CA;</i>
-          </span>
-          <span fxFlex="40" fxLayout="column" fxLayoutAlign="start stretch">
-            <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-              <span class="label-16" fxLayoutAlign="end center"> John Doe </span>
-              <span class="label-12-grey" fxLayoutAlign="start center"> 6 min(s) away</span>
-            </span>
-            <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-              <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
-              <span class="label-12" fxLayoutAlign="start center"> Koramanga to Whitefield</span>
-            </span>
-            <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-    
-              <span class="label-12-grey" fxLayoutAlign="end center">car:</span>
-              <span class="label-12" fxLayoutAlign="start center">Polo</span>
-              <span class="label-12-grey" fxLayoutAlign="end center">seats available:</span>
-              <span class="label-12" fxLayoutAlign="start center">3</span>
-    
-            </span>
-          </span>
-    
-          <span fxFlex fxLayout="column" fxLayoutAlign="center end">
-<!--     
-            <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
-              <span class="label-14-blue">4.5</span>
-              <span class="divider">|</span>
-              <span>
-                <i class="material-icons rating-icon">&#xE838;</i>
-              </span>
-            </span> -->
+  <div fxLayout="row" fxFlex="1020px" fxFlex.xs fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutGap.xs="10px"
+    fxLayoutAlign="start center" fxLayoutAlign.xs="start stretch">
 
-            <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
-      
-              <span>
-                  <i class="material-icons call-icon">&#xE0B0;</i>
-              </span>
-            </span> 
-    
-          </span>
-        </mat-card>
-
-
-    <mat-card *ngFor='let obj of searchResults' class='item' fxLayout="row" fxLayoutAlign="start center">
+    <mat-card class='card selected' fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
       <span fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
-        <i class="material-icons person-icon">&#xE853;</i>
+        <i class="material-icons check-icon">&#xE5CA;</i>
       </span>
-      <span fxFlex="40" fxLayout="column" fxLayoutAlign="start stretch">
+      <span fxFlex="40" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
           <span class="label-16" fxLayoutAlign="end center"> John Doe </span>
           <span class="label-12-grey" fxLayoutAlign="start center"> 6 min(s) away</span>
@@ -105,7 +54,42 @@
         </span>
       </span>
 
-      <span fxFlex fxLayout="column" fxLayoutAlign="center end">
+      <span fxFlex fxFlex.xs="10" fxLayout="column" fxLayoutAlign="center end">
+
+        <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+          <span>
+            <i class="material-icons call-icon">&#xE0B0;</i>
+          </span>
+        </span>
+
+      </span>
+    </mat-card>
+
+
+    <mat-card *ngFor='let obj of searchResults' class='card' fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
+      <span fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
+        <i class="material-icons person-icon">&#xE853;</i>
+      </span>
+      <span fxFlex="40" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
+        <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+          <span class="label-16" fxLayoutAlign="end center"> John Doe </span>
+          <span class="label-12-grey" fxLayoutAlign="start center"> 6 min(s) away</span>
+        </span>
+        <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+          <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
+          <span class="label-12" fxLayoutAlign="start center"> Koramanga to Whitefield</span>
+        </span>
+        <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+
+          <span class="label-12-grey" fxLayoutAlign="end center">car:</span>
+          <span class="label-12" fxLayoutAlign="start center">Polo</span>
+          <span class="label-12-grey" fxLayoutAlign="end center">seats available:</span>
+          <span class="label-12" fxLayoutAlign="start center">3</span>
+
+        </span>
+      </span>
+
+      <span fxFlex fxFlex.xs="20" fxLayout="column" fxLayoutAlign="center end">
 
         <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
           <span class="label-14-blue">4.5</span>
@@ -118,12 +102,10 @@
       </span>
     </mat-card>
   </div>
-
 </div>
 
-<br/>
-<div fxLayout="row" fxLayoutAlign="center center">
+<div fxLayout="row" fxLayoutAlign="center center" class="confirm-button-container">
     <button mat-raised-button color="primary">CONFIRM RIDE</button>
-  </div>
+</div>
 
 
