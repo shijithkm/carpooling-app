@@ -1,5 +1,5 @@
 <agm-map [latitude]="lat" [longitude]="lng" >
-  <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
+  <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
 </agm-map>
 
 <div ngClass.xs="search-container-xs" class="search-container">
@@ -10,7 +10,8 @@
       <mat-card class="card" fxFlex="48%" fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="center stretch">
         <span class="label-14">Start From</span>
         <mat-form-field>
-          <input matInput placeholder="Koramangala" value="">
+          <!-- <input matInput placeholder="Koramangala" value=""> -->
+          <input matInput type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #sourceSearch>
         </mat-form-field>
 
       </mat-card>
@@ -18,7 +19,7 @@
 
         <span class="label-14">Destination</span>
         <mat-form-field>
-          <input matInput placeholder="Whitefield" value="">
+          <input matInput type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #destinationSearch>
         </mat-form-field>
       </mat-card>
     </div>

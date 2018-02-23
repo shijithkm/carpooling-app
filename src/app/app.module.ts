@@ -43,7 +43,8 @@ import { CarpoolService } from './carpool.service';
       /**
        * Please get your own key from here : https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
        */
-      apiKey: 'AIzaSyCGkAQRzm5THRHYCRFLY5wyE7gaZroETi0'
+      apiKey: 'AIzaSyCGkAQRzm5THRHYCRFLY5wyE7gaZroETi0',
+      libraries: ["places"]
     }),
     AgmDirectionModule
   ],
