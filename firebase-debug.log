@@ -1,0 +1,76 @@
+[debug] [2018-02-23T19:35:36.640Z] ----------------------------------------------------------------------
+[debug] [2018-02-23T19:35:36.640Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\shijith.mohanan\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase list
+[debug] [2018-02-23T19:35:36.644Z] CLI Version:   3.17.4
+[debug] [2018-02-23T19:35:36.644Z] Platform:      win32
+[debug] [2018-02-23T19:35:36.644Z] Node Version:  v6.11.0
+[debug] [2018-02-23T19:35:36.644Z] Time:          Sat Feb 24 2018 01:05:36 GMT+0530 (India Standard Time)
+[debug] [2018-02-23T19:35:36.644Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-23T19:35:36.662Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-02-23T19:35:36.662Z] > authorizing via signed-in user
+[debug] [2018-02-23T19:35:36.664Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-02-23T19:35:36.664Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/L-cbpowNBWFonA55VfRb2kcFECqYDza4XD0JLkkeLkE',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Feb 24 2018 01:05:36 GMT+0530 (India Standard Time)
+[debug] [2018-02-23T19:35:37.020Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-23T19:35:37.045Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+  
+ Sat Feb 24 2018 01:05:37 GMT+0530 (India Standard Time)
+[debug] [2018-02-23T19:35:37.401Z] Error: write EPROTO 101057795:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:794:
+
+    at exports._errnoException (util.js:1018:11)
+    at WriteWrap.afterWrite (net.js:800:14)
+[error] 
+[error] Error: Server Error. write EPROTO 101057795:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:794:
+
+[debug] [2018-02-23T19:37:42.919Z] ----------------------------------------------------------------------
+[debug] [2018-02-23T19:37:42.922Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\shijith.mohanan\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-02-23T19:37:42.922Z] CLI Version:   3.17.4
+[debug] [2018-02-23T19:37:42.923Z] Platform:      win32
+[debug] [2018-02-23T19:37:42.923Z] Node Version:  v6.11.0
+[debug] [2018-02-23T19:37:42.924Z] Time:          Sat Feb 24 2018 01:07:42 GMT+0530 (India Standard Time)
+[debug] [2018-02-23T19:37:42.924Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-23T19:37:42.926Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-23T19:37:42.926Z] > authorizing via signed-in user
+[debug] [2018-02-23T19:37:42.926Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-02-23T19:37:42.926Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/L-cbpowNBWFonA55VfRb2kcFECqYDza4XD0JLkkeLkE',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Feb 24 2018 01:07:42 GMT+0530 (India Standard Time)
+[debug] [2018-02-23T19:37:43.226Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-23T19:37:43.242Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/carpooling-app-81d7c  
+  
+ Sat Feb 24 2018 01:07:43 GMT+0530 (India Standard Time)
+[info] 
+[warn] !  Your CLI authentication needs to be updated to take advantage of new features.
+[warn] !  Please run firebase login --reauth
+[info] 
+[debug] [2018-02-23T19:37:43.751Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-02-23T19:37:43.751Z] > authorizing via signed-in user
+[debug] [2018-02-23T19:37:43.751Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-02-23T19:37:43.751Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/L-cbpowNBWFonA55VfRb2kcFECqYDza4XD0JLkkeLkE',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Feb 24 2018 01:07:43 GMT+0530 (India Standard Time)
+[debug] [2018-02-23T19:37:43.920Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-23T19:37:43.926Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/carpooling-app-81d7c  
+  
+ Sat Feb 24 2018 01:07:43 GMT+0530 (India Standard Time)
+[debug] [2018-02-23T19:37:44.258Z] Error: write EPROTO 101057795:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:794:
+
+    at exports._errnoException (util.js:1018:11)
+    at WriteWrap.afterWrite (net.js:800:14)
+[error] 
+[error] Error: Server Error. write EPROTO 101057795:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:794:
+

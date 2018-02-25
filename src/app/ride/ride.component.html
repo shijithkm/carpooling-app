@@ -32,11 +32,11 @@
   <div fxLayout="row" fxFlex="1020px" fxFlex.xs fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutGap.xs="10px"
     fxLayoutAlign="start center" fxLayoutAlign.xs="start stretch">
 
-    <mat-card class='card selected' fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
+    <!-- <mat-card class='card selected' fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
       <span fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
         <i class="material-icons check-icon">&#xE5CA;</i>
       </span>
-      <span fxFlex="40" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
+      <span fxFlex="50" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
           <span class="label-16" fxLayoutAlign="end center"> John Doe </span>
           <span class="label-12-grey" fxLayoutAlign="start center"> 6 min(s) away</span>
@@ -64,28 +64,28 @@
         </span>
 
       </span>
-    </mat-card>
+    </mat-card> -->
 
 
     <mat-card *ngFor='let obj of searchResults' class='card' fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
       <span fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
         <i class="material-icons person-icon">&#xE853;</i>
       </span>
-      <span fxFlex="40" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
+      <span fxFlex="50" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-          <span class="label-16" fxLayoutAlign="end center"> John Doe </span>
-          <span class="label-12-grey" fxLayoutAlign="start center"> 6 min(s) away</span>
+          <span class="label-16" fxLayoutAlign="end center"> {{ obj.name }} </span>
+          <span class="label-12-grey" fxLayoutAlign="start center"> {{ obj.distance }} min(s) away</span>
         </span>
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
           <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
-          <span class="label-12" fxLayoutAlign="start center"> Koramanga to Whitefield</span>
+          <span class="label-12" fxLayoutAlign="start center"> {{ obj.source + ' to ' + obj.destination }}</span>
         </span>
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
 
           <span class="label-12-grey" fxLayoutAlign="end center">car:</span>
-          <span class="label-12" fxLayoutAlign="start center">Polo</span>
+          <span class="label-12" fxLayoutAlign="start center">{{ obj.car }}</span>
           <span class="label-12-grey" fxLayoutAlign="end center">seats available:</span>
-          <span class="label-12" fxLayoutAlign="start center">3</span>
+          <span class="label-12" fxLayoutAlign="start center">{{ obj.seats }}</span>
 
         </span>
       </span>
@@ -93,7 +93,7 @@
       <span fxFlex fxFlex.xs="20" fxLayout="column" fxLayoutAlign="center end">
 
         <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
-          <span class="label-14-blue">4.5</span>
+          <span class="label-14-blue">{{ obj.rating }}</span>
           <span class="divider">|</span>
           <span>
             <i class="material-icons rating-icon">&#xE838;</i>
@@ -105,7 +105,7 @@
   </div>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="center center" class="confirm-button-container">
+<div *ngIf="searchResults.length" fxLayout="row" fxLayoutAlign="center center" class="confirm-button-container">
     <button mat-raised-button color="primary">CONFIRM RIDE</button>
 </div>
 

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "John Doe",
+    "distance ": "6",
+    "source": "Electronic City",
+    "destination": "Whitefield",
+    "coordinates": {
+      "lat": 12.000,
+      "lag": 72.0000
+    },
+    "car": "Polo",
+    "seats": 3,
+    "mob": "9902172291",
+    "rating":5
+  },
+  {
+    "name": "Rajesh",
+    "distance": "3",
+    "source": "Koramangala",
+    "destination": "Whitefield",
+    "coordinates": {
+      "lat": 12.000,
+      "lag": 72.0000
+    },
+    "car": "Zen",
+    "seats": 2,
+    "mob": "9922172291",
+    "rating":4
+  },
+  {
+    "name": "Radhakrishna",
+    "distance": "7",
+    "source": "Koramangala",
+    "destination": "Whitefield",
+    "coordinates": {
+      "lat": 12.000,
+      "lag": 72.0000
+    },
+    "car": "Swift",
+    "seats": 2,
+    "mob": "9999172291",
+    "rating":4.5
+  },
+  {
+    "name": "Nikhil",
+    "distance": "2",
+    "source": "Koramangala",
+    "destination": "Electronic City",
+    "coordinates": {
+      "lat": 12.000,
+      "lag": 72.0000
+    },
+    "car": "Verna",
+    "seats": 1,
+    "mob": "9999170001",
+    "rating":4.5
+  }
+]

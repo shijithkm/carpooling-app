@@ -17,13 +17,14 @@ export class RideComponent implements OnInit {
   @ViewChild('sourceSearch') public sourceSearchElement: ElementRef;
   @ViewChild('destinationSearch') public destinationSearchElement: ElementRef;
 
-  public searchResults: any[] = [1, 2, 3, 4, 5];
 
   lat: Number = 12.9314583;
   lng: Number = 77.62998579999999;
   origin: any = { lat: 12.9314583, lng: 77.62998579999999 };
   destination: any = { lat: 12.9697999, lng: 77.74994670000001 };
-
+  public searchSource: string = null;
+  public searchDestination: string = null;
+  public searchResults: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +34,7 @@ export class RideComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.route.data.subscribe(v => {
       this._carPoolService.appTitle = v.appTitle;
     });
@@ -41,39 +43,55 @@ export class RideComponent implements OnInit {
     this.mapsAPILoader.load().then(
       () => {
 
-        let autocomplete = new google.maps.places.Autocomplete(this.sourceSearchElement.nativeElement, { types: ["address"] });
-        autocomplete.addListener("place_changed", () => {
+        let autocomplete1 = new google.maps.places.Autocomplete(this.sourceSearchElement.nativeElement, { types: ["address"] });
+        autocomplete1.addListener("place_changed", () => {
           this.ngZone.run(() => {
-            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-            if (place.geometry === undefined || place.geometry === null) {
+            let place1: google.maps.places.PlaceResult = autocomplete1.getPlace();
+
+
+            if (place1.geometry === undefined || place1.geometry === null) {
               return;
             }
-            var lat = place.geometry.location.lat(),
-              lng = place.geometry.location.lng();
+            console.log(place1);
+            this.searchSource = place1.name;
+            var lat = place1.geometry.location.lat(),
+              lng = place1.geometry.location.lng();
             this.origin = { lat: lat, lng: lng };
             console.log(lat);
             console.log(lng);
           });
         });
 
-        autocomplete = new google.maps.places.Autocomplete(this.destinationSearchElement.nativeElement, { types: ["address"] });
-        autocomplete.addListener("place_changed", () => {
+        let autocomplete2 = new google.maps.places.Autocomplete(this.destinationSearchElement.nativeElement, { types: ["address"] });
+        autocomplete2.addListener("place_changed", () => {
           this.ngZone.run(() => {
-            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-            if (!place.geometry || place.geometry === undefined || place.geometry === null) {
+            let place2: google.maps.places.PlaceResult = autocomplete2.getPlace();
+
+            if (!place2.geometry || place2.geometry === undefined || place2.geometry === null) {
               return;
             }
-            var lat = place.geometry.location.lat(),
-              lng = place.geometry.location.lng();
+            console.log(place2);
+            this.searchDestination = place2.name;
+            var lat = place2.geometry.location.lat(),
+              lng = place2.geometry.location.lng();
             this.destination = { lat: lat, lng: lng };
             console.log(lat);
             console.log(lng);
+            this.rideSearch();
           });
         });
 
       }
     );
 
+  }
+
+  rideSearch() {
+    this._carPoolService.rideSearch(this.searchSource, this.searchDestination)
+      .subscribe(res => {
+        console.log(res);
+        this.searchResults = res;
+      });
   }
 
 }
