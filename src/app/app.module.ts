@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app.routing.module';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -48,7 +49,8 @@ import { CarpoolService } from './carpool.service';
       apiKey: 'AIzaSyCGkAQRzm5THRHYCRFLY5wyE7gaZroETi0',
       libraries: ["places"]
     }),
-    AgmDirectionModule
+    AgmDirectionModule,
+    AgmSnazzyInfoWindowModule
   ],
   providers: [CarpoolService],
   bootstrap: [AppComponent]

@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "carpooling-app-theme.scss"
+        "carpooling-app-theme.scss",
+        "../node_modules/snazzy-info-window/dist/snazzy-info-window.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

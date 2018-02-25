@@ -20,11 +20,18 @@ export class RideComponent implements OnInit {
 
   lat: Number = 12.9314583;
   lng: Number = 77.62998579999999;
-  origin: any = { lat: 12.9314583, lng: 77.62998579999999 };
-  destination: any = { lat: 12.9697999, lng: 77.74994670000001 };
+
+  origin: any = {  };
+  destination: any = { };
   public searchSource: string = null;
   public searchDestination: string = null;
   public searchResults: any = [];
+  youAreHere = {
+    color: 'green',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    text: 'You are here',
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -39,6 +46,12 @@ export class RideComponent implements OnInit {
       this._carPoolService.appTitle = v.appTitle;
     });
 
+    navigator.geolocation.getCurrentPosition((pos)=>{
+
+      this.lat = pos.coords.latitude;
+      this.lng = pos.coords.longitude;
+
+    });
 
     this.mapsAPILoader.load().then(
       () => {
@@ -84,6 +97,18 @@ export class RideComponent implements OnInit {
       }
     );
 
+  }
+
+  getTimeAway(datetime){
+    let startTime:Date,endTime:Date,difference:number,diffMins:number,diffHrs:number;
+    startTime = new Date(); 
+    endTime = new Date(datetime);
+    difference = endTime.getTime() - startTime.getTime(); // This will give difference in milliseconds
+    diffHrs = Math.floor((difference % 86400000) / 3600000); // hours
+    diffMins = Math.round(((difference % 86400000) % 3600000) / 60000); // minutes
+
+    return (diffHrs > 0)? diffHrs +' hrs(s) '+ diffMins +' min(s) away': diffMins + ' min(s) away';
+ 
   }
 
   rideSearch() {

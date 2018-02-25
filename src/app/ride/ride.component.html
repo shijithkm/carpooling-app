@@ -1,5 +1,44 @@
-<agm-map [latitude]="lat" [longitude]="lng" >
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
+  
+  <agm-marker [latitude]="lat" [longitude]="lng">
+      <agm-snazzy-info-window [isOpen]="true" [latitude]="lat" [longitude]="lng" [maxWidth]="200" [closeWhenOthersOpen]="true">
+          <ng-template>
+            You are here
+          </ng-template>
+        </agm-snazzy-info-window>
+  </agm-marker>
+  
+  <agm-marker *ngFor='let obj of searchResults' iconUrl="assets/car-icon.png" [latitude]="obj.coordinates.lat" [longitude]="obj.coordinates.lag">
+  
+    <agm-snazzy-info-window [isOpen]="false" [latitude]="obj.coordinates.lat" [longitude]="obj.coordinates.lag" [maxWidth]="300" [closeWhenOthersOpen]="true">
+        <ng-template>
+ 
+            <span fxFlex="100" fxLayout="column" fxLayoutAlign="start stretch">
+                <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                  <span class="label-16" fxLayoutAlign="end center"> {{ obj.name }} </span>
+                  <span class="label-12-grey" fxLayoutAlign="start center">{{ getTimeAway(obj.startTime) }}</span>
+                </span>
+                <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                  <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
+                  <span class="label-12" fxLayoutAlign="start center"> {{ obj.source + ' to ' + obj.destination }}</span>
+                </span>
+                <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+        
+                  <span class="label-12-grey" fxLayoutAlign="end center">car:</span>
+                  <span class="label-12" fxLayoutAlign="start center">{{ obj.car }}</span>
+                  <span class="label-12-grey" fxLayoutAlign="end center">seats available:</span>
+                  <span class="label-12" fxLayoutAlign="start center">{{ obj.seats }}</span>
+        
+                </span>
+              </span>
+ 
+        </ng-template>
+      </agm-snazzy-info-window>
+  
+  </agm-marker>
+   
   <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
+
 </agm-map>
 
 <div ngClass.xs="search-container-xs" class="search-container">
@@ -74,7 +113,7 @@
       <span fxFlex="50" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
           <span class="label-16" fxLayoutAlign="end center"> {{ obj.name }} </span>
-          <span class="label-12-grey" fxLayoutAlign="start center"> {{ obj.distance }} min(s) away</span>
+          <span class="label-12-grey" fxLayoutAlign="start center">{{ getTimeAway(obj.startTime) }}</span>
         </span>
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
           <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
