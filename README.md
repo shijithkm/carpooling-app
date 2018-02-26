@@ -14,18 +14,18 @@ Open terminal and choose your project folder and clone it using this below comma
 # Step - 3
 
 After cloning we need to install our node modules which is mentioned in package.json
-<br>first foucus to our application then install
+<br>first point to our carpooling-app then install
 <br>`cd carpooling-app`
 <br>`npm install`
 
 # Step - 4
 
 Now we need to configure api written on node
-<br>Open an another terminal and focus to carpooling-app\server
+<br>Open an another terminal and point to carpooling-app\server
 <br>`npm install` run this command to install dependencies 
 <br> After install we can start the server using below command
 <br>`node server`
-<br>If everything you will get a message saying `App listening on port 5000`
+<br>If everything ok you will get a message saying `App listening on port 5000`
 
 # Step - 5
 
