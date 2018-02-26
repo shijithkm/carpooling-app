@@ -1,68 +1,60 @@
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
-  
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="17">
   <agm-marker [latitude]="lat" [longitude]="lng">
-      <agm-snazzy-info-window [isOpen]="true" [latitude]="lat" [longitude]="lng" [maxWidth]="200" [closeWhenOthersOpen]="true">
-          <ng-template>
-            You are here
-          </ng-template>
-        </agm-snazzy-info-window>
+    <agm-snazzy-info-window [placement]="'right'" [isOpen]="true" [latitude]="lat" [longitude]="lng" [maxWidth]="200" [closeWhenOthersOpen]="true">
+      <ng-template>
+        You are here
+      </ng-template>
+    </agm-snazzy-info-window>
   </agm-marker>
-  
   <agm-marker *ngFor='let obj of searchResults' iconUrl="assets/car-icon.png" [latitude]="obj.coordinates.lat" [longitude]="obj.coordinates.lag">
-  
-    <agm-snazzy-info-window [isOpen]="false" [latitude]="obj.coordinates.lat" [longitude]="obj.coordinates.lag" [maxWidth]="300" [closeWhenOthersOpen]="true">
-        <ng-template>
- 
-            <span fxFlex="100" fxLayout="column" fxLayoutAlign="start stretch">
-                <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-                  <span class="label-16" fxLayoutAlign="end center"> {{ obj.name }} </span>
-                  <span class="label-12-grey" fxLayoutAlign="start center">{{ getTimeAway(obj.startTime) }}</span>
-                </span>
-                <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-                  <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
-                  <span class="label-12" fxLayoutAlign="start center"> {{ obj.source + ' to ' + obj.destination }}</span>
-                </span>
-                <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-        
-                  <span class="label-12-grey" fxLayoutAlign="end center">car:</span>
-                  <span class="label-12" fxLayoutAlign="start center">{{ obj.car }}</span>
-                  <span class="label-12-grey" fxLayoutAlign="end center">seats available:</span>
-                  <span class="label-12" fxLayoutAlign="start center">{{ obj.seats }}</span>
-        
-                </span>
-              </span>
- 
-        </ng-template>
-      </agm-snazzy-info-window>
-  
+    <agm-snazzy-info-window [isOpen]="false" [latitude]="obj.coordinates.lat" [longitude]="obj.coordinates.lag" [maxWidth]="300"
+      [closeWhenOthersOpen]="true">
+      <ng-template>
+        <span fxFlex="100" fxLayout="column" fxLayoutAlign="start stretch">
+          <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+            <span class="label-16" fxLayoutAlign="end center"> {{ obj.name }} </span>
+            <span class="label-12-grey" fxLayoutAlign="start center">{{ getTimeAway(obj.startTime) }}</span>
+          </span>
+          <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+            <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
+            <span class="label-12" fxLayoutAlign="start center"> {{ obj.source + ' to ' + obj.destination }}</span>
+          </span>
+          <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+            <span class="label-12-grey" fxLayoutAlign="end center">car:</span>
+            <span class="label-12" fxLayoutAlign="start center">{{ obj.car }}</span>
+            <span class="label-12-grey" fxLayoutAlign="end center">seats available:</span>
+            <span class="label-12" fxLayoutAlign="start center">{{ obj.seats }}</span>
+          </span>
+        </span>
+      </ng-template>
+    </agm-snazzy-info-window>
   </agm-marker>
-   
   <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
-
 </agm-map>
 
 <div ngClass.xs="search-container-xs" class="search-container">
-<div fxLayout="row" fxLayoutAlign="center center">
-    <div fxLayout="row"  fxFlex="1020px" fxFlex.xs fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutGap.xs="10px" fxLayoutAlign="start center"
-      fxLayoutAlign.xs="start stretch">
-      
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="row" fxFlex="1020px" fxFlex.xs fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutGap.xs="10px"
+      fxLayoutAlign="start center" fxLayoutAlign.xs="start stretch">
+
       <mat-card class="card" fxFlex="48%" fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="center stretch">
         <span class="label-14">Start From</span>
         <mat-form-field>
-          <!-- <input matInput placeholder="Koramangala" value=""> -->
-          <input matInput type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #sourceSearch>
+          <input matInput type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control"
+            #sourceSearch>
         </mat-form-field>
 
       </mat-card>
-      <mat-card class="card" fxFlex="48%"  fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="center stretch">
+      <mat-card class="card" fxFlex="48%" fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="center stretch">
 
         <span class="label-14">Destination</span>
         <mat-form-field>
-          <input matInput type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #destinationSearch>
+          <input matInput type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control"
+            #destinationSearch>
         </mat-form-field>
       </mat-card>
     </div>
-</div>
+  </div>
 
 </div>
 
@@ -71,46 +63,13 @@
   <div fxLayout="row" fxFlex="1020px" fxFlex.xs fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutGap.xs="10px"
     fxLayoutAlign="start center" fxLayoutAlign.xs="start stretch">
 
-    <!-- <mat-card class='card selected' fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
+    <mat-card *ngFor='let obj of searchResults' class='card' [ngClass]="{'selected':selectedIndex == obj.id}" (click)="setSelected(obj.id)"
+      fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
       <span fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
-        <i class="material-icons check-icon">&#xE5CA;</i>
+        <i *ngIf="selectedIndex != obj.id" class="material-icons person-icon">&#xE853;</i>
+        <i *ngIf="selectedIndex == obj.id" class="material-icons check-icon">&#xE5CA;</i>
       </span>
-      <span fxFlex="50" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
-        <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-          <span class="label-16" fxLayoutAlign="end center"> John Doe </span>
-          <span class="label-12-grey" fxLayoutAlign="start center"> 6 min(s) away</span>
-        </span>
-        <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-          <span class="label-12-grey" fxLayoutAlign="end center">route:</span>
-          <span class="label-12" fxLayoutAlign="start center"> Koramanga to Whitefield</span>
-        </span>
-        <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-
-          <span class="label-12-grey" fxLayoutAlign="end center">car:</span>
-          <span class="label-12" fxLayoutAlign="start center">Polo</span>
-          <span class="label-12-grey" fxLayoutAlign="end center">seats available:</span>
-          <span class="label-12" fxLayoutAlign="start center">3</span>
-
-        </span>
-      </span>
-
-      <span fxFlex fxFlex.xs="10" fxLayout="column" fxLayoutAlign="center end">
-
-        <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
-          <span>
-            <i class="material-icons call-icon">&#xE0B0;</i>
-          </span>
-        </span>
-
-      </span>
-    </mat-card> -->
-
-
-    <mat-card *ngFor='let obj of searchResults' class='card' fxLayout="row" fxFlex="48%" fxLayoutAlign="start center">
-      <span fxFlex="20" fxLayout="row" fxLayoutAlign="center center">
-        <i class="material-icons person-icon">&#xE853;</i>
-      </span>
-      <span fxFlex="50" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
+      <span fxFlex="60" fxFlex.xs fxLayout="column" fxLayoutAlign="start stretch">
         <span fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
           <span class="label-16" fxLayoutAlign="end center"> {{ obj.name }} </span>
           <span class="label-12-grey" fxLayoutAlign="start center">{{ getTimeAway(obj.startTime) }}</span>
@@ -129,8 +88,7 @@
         </span>
       </span>
 
-      <span fxFlex fxFlex.xs="20" fxLayout="column" fxLayoutAlign="center end">
-
+      <span *ngIf="selectedIndex != obj.id" fxFlex fxFlex.xs="10" fxLayout="column" fxLayoutAlign="center end">
         <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
           <span class="label-14-blue">{{ obj.rating }}</span>
           <span class="divider">|</span>
@@ -138,14 +96,26 @@
             <i class="material-icons rating-icon">&#xE838;</i>
           </span>
         </span>
-
       </span>
+      <span *ngIf="selectedIndex == obj.id" fxFlex fxFlex.xs="10" fxLayout="column" fxLayoutAlign="center end">
+        <span fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+          <span>
+            <i class="material-icons call-icon">&#xE0B0;</i>
+          </span>
+        </span>
+      </span>
+
     </mat-card>
   </div>
 </div>
 
 <div *ngIf="searchResults.length" fxLayout="row" fxLayoutAlign="center center" class="confirm-button-container">
-    <button mat-raised-button color="primary">CONFIRM RIDE</button>
+  <button [disabled]="(selectedIndex == -1)" mat-raised-button color="primary" (click)="confirmRide()">CONFIRM RIDE</button>
 </div>
 
-
+<div *ngIf="!searchResults.length" fxLayout="column" fxLayoutAlign="center center">
+  <span class="label-14">Please enter
+    <b>Start From</b> and
+    <b>Destination</b> to get riders list</span>
+  <span class="label-12-grey">eg. Koramangala to Electronic City</span>
+</div>

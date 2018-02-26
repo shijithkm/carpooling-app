@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
@@ -19,6 +20,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { CarpoolService } from './carpool.service';
+import { AuthGuard } from './auth.guard';
+import { UserService } from './user.service';
+import { environment } from '../environments/environment';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -29,12 +34,14 @@ import { CarpoolService } from './carpool.service';
     RideComponent,
     TemplateComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -46,13 +53,13 @@ import { CarpoolService } from './carpool.service';
       /**
        * Please get your own key from here : https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
        */
-      apiKey: 'AIzaSyCGkAQRzm5THRHYCRFLY5wyE7gaZroETi0',
+      apiKey: environment.GOOGLE_KEY,
       libraries: ["places"]
     }),
     AgmDirectionModule,
     AgmSnazzyInfoWindowModule
   ],
-  providers: [CarpoolService],
+  providers: [CarpoolService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

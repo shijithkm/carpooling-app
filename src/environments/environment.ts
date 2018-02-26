@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  CARPOOL_API:'http://localhost:5000/',
+  GOOGLE_KEY:'AIzaSyCGkAQRzm5THRHYCRFLY5wyE7gaZroETi0'
 };

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarpoolService } from '../carpool.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,13 @@ import { CarpoolService } from '../carpool.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public _carPoolService:CarpoolService) { }
+  constructor(
+    public _carPoolService: CarpoolService,
+    public _userService: UserService
+  ) { }
 
   ngOnInit() {
+    
   }
 
 }
