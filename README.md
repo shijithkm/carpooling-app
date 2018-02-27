@@ -1,27 +1,36 @@
 # CarpoolingApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+# Step - 1
 
-## Development server
+Install node js from this link https://nodejs.org/en/
+<br>after install open terminal and run this command
+<br>`npm -v` this should return the current node version
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Step - 2
 
-## Code scaffolding
+Open terminal and choose your project folder and clone it using this below command 
+<br> `git clone https://github.com/shijithkm/carpooling-app.git`;
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Step - 3
 
-## Build
+After cloning we need to install our node modules which is mentioned in package.json
+<br>first point to our carpooling-app then install
+<br>`cd carpooling-app`
+<br>`npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+# Step - 4
 
-## Running unit tests
+Now we need to configure api written on node
+<br>Open an another terminal and point to carpooling-app\server
+<br>`npm install` run this command to install dependencies 
+<br> After install we can start the server using below command
+<br>`node server`
+<br>If everything ok you will get a message saying `App listening on port 5000`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Step - 5
 
-## Running end-to-end tests
+Now go to previous terminal which pointed on carpooling-app and run below command to start our application
+<br> `ng serve --aot`
+<br> This will run the application and you can check from browser using http://localhost:4200
+<br> username is hardcoded to 'developer.shijith@gmail.com' and password is 'password'
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
