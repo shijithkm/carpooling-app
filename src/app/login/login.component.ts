@@ -13,6 +13,7 @@ import { UserService } from '../user.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  isLoginFailed: boolean;
 
   constructor(
     private router: Router,
@@ -21,6 +22,8 @@ export class LoginComponent implements OnInit {
     private _carPoolService: CarpoolService,
     private _userService: UserService
   ) { 
+      this.isLoginFailed = false;
+      this._userService.clearLogin();
       this.createForm();
   }
 
@@ -40,7 +43,9 @@ export class LoginComponent implements OnInit {
   onSubmit() {
 
     if (this.loginForm.status == 'VALID') {
-      this._userService.validateLogin(this.loginForm.value);
+      if(this._userService.validateLogin(this.loginForm.value) == false){
+        this.isLoginFailed = true;
+      }
     }
   }
 

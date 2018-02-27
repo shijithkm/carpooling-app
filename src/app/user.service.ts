@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 @Injectable()
 export class UserService {
 
-  public username: string;
-
   constructor(private router: Router) { }
 
   /** 
@@ -29,10 +27,14 @@ export class UserService {
 
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('username', value.username);
-      this.username = value.username;
       this.router.navigate(['/ride']);
+    }else{
+      return false;
     }
 
+  }
+  clearLogin(){
+    localStorage.clear();
   }
 
 }
